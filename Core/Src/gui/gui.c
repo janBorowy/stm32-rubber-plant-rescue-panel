@@ -3,26 +3,33 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "zxpix_font.h"
 
 #define MIN(a, b) (((a) <= (b)) ? (a) : (b))
 #define MAX(a, b) (((a) >= (b)) ? (a) : (b))
 
+_Bool Needs_Refresh;
 uint8_t Gui_Display_Data[DISPLAY_WIDTH * DISPLAY_HEIGHT];
+
+void gui_refresh() {
+    if (Needs_Refresh) {
+        oled_draw(Gui_Display_Data);
+        Needs_Refresh = false;
+    }
+}
 
 void set_pixel(uint8_t x, uint8_t y, Shade shade) {
     if (x >= 0 && x < DISPLAY_WIDTH &&
         y >= 0 && y < DISPLAY_HEIGHT) {
         Gui_Display_Data[y * DISPLAY_WIDTH + x] = shade;
+        Needs_Refresh = true;
     }
-}
-
-void gui_refresh() {
-    oled_draw(Gui_Display_Data);
 }
 
 void gui_clear_display(Shade shade) {
     memset(Gui_Display_Data, shade, DISPLAY_WIDTH * DISPLAY_HEIGHT);
+    Needs_Refresh = true;
 }
 
 void gui_draw_line(uint8_t start_x, uint8_t start_y, uint8_t end_x, uint8_t end_y, Shade shade) {

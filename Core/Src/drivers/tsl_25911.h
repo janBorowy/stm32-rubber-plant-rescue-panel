@@ -24,10 +24,6 @@ typedef enum {
     TSL_TIME_600 = 0b101
 } TslIntegrationTime;
 
-typedef struct {
-
-} TslHandle;
-
 extern I2C_HandleTypeDef hi2c1;
 
 /*
@@ -38,7 +34,9 @@ TslStatus tsl_25911_enable_sensor_default();
 TslStatus tsl_25911_enable_sensor(TslGain gain, TslIntegrationTime integration_time);
 TslStatus tsl_25911_disable_sensor();
 
-/* Requires that sensor is enabled by tsl_25911_enable_sensor* */
+/* Requires that sensor is enabled by tsl_25911_enable_sensor
+    returns -1 on overflow
+*/
 uint32_t tsl_25911_read_lux();
 
 #endif

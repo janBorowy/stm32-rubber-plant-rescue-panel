@@ -45,6 +45,11 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    Core/Src/drivers/tsl_25911.c
+    Core/Src/drivers/waveshare_24777.c
+    Core/Src/gui/gui.c
+    Core/Src/stats/stats.c
+    Core/Src/stats/stats_gui.c
 )
 
 # Add include paths

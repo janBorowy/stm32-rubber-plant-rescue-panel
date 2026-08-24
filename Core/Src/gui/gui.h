@@ -5,6 +5,9 @@
 #include <sys/_types.h>
 #include "../drivers/waveshare_24777.h"
 
+#define CHAR_WIDTH 6
+#define CHAR_HEIGHT 8
+
 typedef enum {
     BLACK = 0,
     GRAY = 1,
