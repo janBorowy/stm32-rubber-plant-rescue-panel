@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define MAX_MOIST_VOLT (3150)
+#define MAX_MOIST_VOLT (3000)
 #define MIN_MOIST_VOLT (1350)
 
 extern ADC_HandleTypeDef hadc1;
