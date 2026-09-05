@@ -1,0 +1,11 @@
+#ifndef PLANT_CHARACTERISTICS_H
+#define PLANT_CHARACTERISTICS_H
+
+#define PLANT_TEMP_COLD 16.0 // celsius
+#define PLANT_TEMP_HOT 30.0
+#define PLANT_MOIST_DRY 20.0
+#define PLANT_MOIST_HIGH 70.0
+#define PLANT_LUX_MIN 20000 // lux * day
+#define PLANT_LUX_MAX 60000
+
+#endif
